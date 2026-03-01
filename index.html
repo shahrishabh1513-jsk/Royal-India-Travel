@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourly · Gujarat & Rajasthan</title>
+  <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="./assets/images/logo.jpg" alt="Tourly">
+      </a>
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li><a href="#home" class="navbar-link" data-nav-link>Home</a></li>
+          <li><a href="#destination" class="navbar-link" data-nav-link>Destinations</a></li>
+          <li><a href="#package" class="navbar-link" data-nav-link>Packages</a></li>
+          <li><a href="#gallery" class="navbar-link" data-nav-link>Gallery</a></li>
+          <li><a href="#contact" class="navbar-link" data-nav-link>Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+919876543210" class="helpline">
+          <ion-icon name="call-outline"></ion-icon>
+          <span>+91 98765 43210</span>
+        </a>
+        <button class="btn btn-primary" onclick="bookNow()">Book Now</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="hero-subtitle animate-text">Discover the Royal Spirit</span>
+        <h1 class="hero-title animate-text">
+          Gujarat & <span class="text-gradient">Rajasthan</span>
+        </h1>
+        <p class="hero-text animate-text">From the white desert of Kutch to the golden forts of Jaisalmer</p>
+        <div class="hero-buttons animate-text">
+          <button class="btn btn-primary" onclick="exploreNow()">Explore Now</button>
+          <button class="btn btn-outline" onclick="watchVideo()">
+            <ion-icon name="play-circle"></ion-icon> Watch Video
+          </button>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll Down</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <div class="container">
+        <form class="search-form glass-effect" onsubmit="event.preventDefault(); searchTour();">
+          <div class="search-group">
+            <label>Destination</label>
+            <select id="destination" required>
+              <option value="" disabled selected>Select place</option>
+              <optgroup label="🌊 Gujarat">
+                <option value="dwarka">Dwarka</option>
+                <option value="somnath">Somnath</option>
+                <option value="div-daman">Div & Daman</option>
+                <option value="kutch">Kutch - Rann Utsav</option>
+                <option value="statue-of-unity">Statue of Unity</option>
+              </optgroup>
+              <optgroup label="🏰 Rajasthan">
+                <option value="udaipur">Udaipur</option>
+                <option value="jaisalmer">Jaisalmer</option>
+                <option value="jaipur">Jaipur</option>
+                <option value="nathdwara">Nathdwara</option>
+                <option value="kumbhalgarh">Kumbhalgarh</option>
+                <option value="kankroli">Kankroli</option>
+                <option value="mount-abu">Mount Abu</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="search-group">
+            <label>Travelers</label>
+            <input type="number" id="people" min="1" value="2">
+          </div>
+          <div class="search-group">
+            <label>Check In</label>
+            <input type="date" id="checkin" required>
+          </div>
+          <div class="search-group">
+            <label>Check Out</label>
+            <input type="date" id="checkout" required>
+          </div>
+          <button type="submit" class="btn btn-primary search-btn">
+            <ion-icon name="search"></ion-icon> Search
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="destinations" id="destination">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Popular Places</span>
+          <h2 class="section-title">Explore <span class="text-gradient">Destinations</span></h2>
+        </div>
+        <div class="destinations-grid" id="destinationsGrid"></div>
+        <div class="text-center">
+          <button class="btn btn-primary" onclick="loadMore()">Load More</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages" id="package">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Special Offers</span>
+          <h2 class="section-title">Popular <span class="text-gradient">Packages</span></h2>
+        </div>
+        <div class="packages-grid" id="packagesGrid"></div>
+        <div class="text-center">
+          <button class="btn btn-primary">View All Packages</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card glass-effect">
+            <div class="feature-icon">🏨</div>
+            <h3>Luxury Stays</h3>
+            <p>5-star heritage hotels and resorts</p>
+          </div>
+          <div class="feature-card glass-effect">
+            <div class="feature-icon">🚗</div>
+            <h3>Private Transfers</h3>
+            <p>Luxury cars with professional drivers</p>
+          </div>
+          <div class="feature-card glass-effect">
+            <div class="feature-icon">🎯</div>
+            <h3>Expert Guides</h3>
+            <p>Local storytelling experiences</p>
+          </div>
+          <div class="feature-card glass-effect">
+            <div class="feature-icon">💰</div>
+            <h3>Best Price</h3>
+            <p>Price match guarantee</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Instagram Moments</span>
+          <h2 class="section-title">Photo <span class="text-gradient">Gallery</span></h2>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Travel Stories</span>
+          <h2 class="section-title">What <span class="text-gradient">Travelers Say</span></h2>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonial-card glass-effect">
+            <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            <p>"Best travel experience in Rajasthan! The desert safari was magical."</p>
+            <div class="testimonial-author">
+              <img src="./assets/images/User.jpg" alt="User">
+              <div>
+                <h4>Rishabh Shah</h4>
+                <span>Somnath,Gujarat</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-effect">
+            <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            <p>"Gujarat tour was perfectly organized. Dwarka and Rann of Kutch were highlights."</p>
+            <div class="testimonial-author">
+              <img src="./assets/images/User2.jpg" alt="User">
+              <div>
+                <h4>Priya Patel</h4>
+                <span>Dwarka,Gujarat</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-effect">
+            <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            <p>"Amazing hospitality and seamless booking. Highly recommended!"</p>
+            <div class="testimonial-author">
+              <img src="./assets/images/User3.jpg" alt="User">
+              <div>
+                <h4>Tasneem Kagzi</h4>
+                <span>Jaisalmer,Rajasthan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-content glass-effect">
+          <h2>Ready to Explore?</h2>
+          <p>Get personalized itinerary for your Gujarat & Rajasthan trip</p>
+          <form class="cta-form" onsubmit="event.preventDefault(); contactUs()">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary">Get Free Quote</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <p>Discover the royal heritage of Gujarat & Rajasthan with our premium travel experiences.</p>
+          <div class="social-links">
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Destinations</a></li>
+            <li><a href="#">Packages</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><ion-icon name="call"></ion-icon> +91 98765 43210</li>
+            <li><ion-icon name="mail"></ion-icon> hello@tourly.in</li>
+            <li><ion-icon name="location"></ion-icon> Ahmedabad, Gujarat</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Tourly. All rights reserved. Design with ❤️ for India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="go-top" data-go-top>
+    <ion-icon name="arrow-up"></ion-icon>
+  </button>
+
+  <script src="./assets/js/script.js"></script>
+  <script>
+    function openSearch() {
+      document.querySelector('.search-section').scrollIntoView({behavior: 'smooth'});
+    }
+    function bookNow() {
+      alert('✨ Thank you for choosing Tourly! Our travel expert will contact you within 30 minutes.');
+    }
+    function exploreNow() {
+      document.getElementById('destination').scrollIntoView({behavior: 'smooth'});
+    }
+    function watchVideo() {
+      alert('🎥 Promo video: Discover the magic of Gujarat & Rajasthan');
+    }
+    function searchTour() {
+      let dest = document.getElementById('destination').value;
+      if(dest) {
+        alert(`🔍 Searching best packages for ${dest}... Our team will reach out with personalized offers!`);
+      } else {
+        alert('Please select a destination');
+      }
+    }
+    function contactUs() {
+      alert('📧 Thanks! We\'ll send free itinerary within 2 hours.');
+    }
+    function loadMore() {
+      alert('Loading more amazing destinations...');
+    }
+  </script>
+</body>
+</html>
