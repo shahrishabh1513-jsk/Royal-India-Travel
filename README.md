@@ -58,10 +58,6 @@ Designed as a portfolio-level frontend project demonstrating UI design, layout s
   <img src="https://img.shields.io/badge/html-orange?logo=html5&logoColor=white"/>
   <img src="https://img.shields.io/badge/css-blue?logo=css3&logoColor=white"/>
   <img src="https://img.shields.io/badge/javascript-yellow?logo=javascript&logoColor=black"/>
-  <img src="https://img.shields.io/badge/travel-website-green"/>
-  <img src="https://img.shields.io/badge/responsive-design-lightgrey"/>
-  <img src="https://img.shields.io/badge/glassmorphism-purple"/>
-  <img src="https://img.shields.io/badge/frontend-project-black"/>
   <img src="https://img.shields.io/badge/interactive-ui-success"/>
   <img src="https://img.shields.io/badge/portfolio-project-blue"/>
 </p>
