@@ -71,39 +71,6 @@ Designed as a portfolio-level frontend project demonstrating UI design, layout s
 
 ---
 
-## 🎯 Core Functionalities
-
-### 🌏 Dynamic Destination Cards
-- Auto-generated destination grid
-- Price and rating display
-- Hover zoom animation
-- Click interaction alerts
-
-### 🏰 Travel Packages Section
-- Dynamic package rendering
-- Duration and pricing display
-- Booking button interaction
-
-### 🔍 Smart Search Section
-- Destination selection dropdown
-- Travelers input
-- Check-in / Check-out date selection
-- Interactive search feedback
-
-### 🎨 UI & Animation Effects
-- Custom animated cursor
-- Glass effect UI components
-- Smooth hover transitions
-- Scroll-based header effect
-- Animated hero section
-
-### 📸 Gallery System
-- Responsive image grid
-- Hover overlay effect
-- Dynamic image loading
-
----
-
 ## 🎯 Project Objective
 
 This project was created to:
